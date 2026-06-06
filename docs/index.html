@@ -1,162 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Azure Container Apps as the AI Agent Runtime</title>
-    <meta
-      name="description"
-      content="A simple GitHub Pages skeleton for the Brisbane Azure User Group talk on Azure Container Apps and production AI agents."
-    />
+    <meta name="description"
+        content="A simple GitHub Pages skeleton for the Brisbane Azure User Group talk on Azure Container Apps and production AI agents." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="hero shell">
-      <p class="eyebrow">Brisbane Azure User Group</p>
-      <h1>Azure Container Apps as the AI Agent Runtime</h1>
-      <p class="subtitle">Useful pattern or Build demo hype?</p>
-      <p class="presenter">Damien Berry</p>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=2" />
+</head>
 
-      <nav class="nav-links" aria-label="Page sections">
-        <a href="#problem">The problem</a>
-        <a href="#microsoft">What Microsoft showed</a>
-        <a href="#runtime">Why runtime matters</a>
-        <a href="#aca">Why Azure Container Apps</a>
-        <a href="#today">What I would use today</a>
-        <a href="#skeptical">What I am sceptical about</a>
-        <a href="#demo">Demo plan</a>
-      </nav>
-    </header>
-
-    <main class="shell page-grid">
-      <section id="problem" class="card">
-        <h2>The problem</h2>
-        <p>
-          The real challenge for AI agents is not only the model. It is the operating environment that makes the
-          agent responsive, secure, observable, and affordable in production.
-        </p>
-        <ul class="bullet-list">
-          <li>Runaway loops and repeated tool calls can quickly inflate cost.</li>
-          <li>Untrusted code paths need strong isolation.</li>
-          <li>Long-running tasks need persistence and fast resume behavior.</li>
-        </ul>
-      </section>
-
-      <aside class="card accent-card" aria-labelledby="architecture-title">
-        <h2 id="architecture-title">Architecture diagram</h2>
-        <p class="muted">Placeholder hook for the future architecture visual.</p>
-        <div class="diagram-box" role="img" aria-label="Architecture diagram placeholder">
-          <span>Model</span>
-          <span>Agent runtime</span>
-          <span>Tools &amp; connectors</span>
-          <span>Observability</span>
+<body id="top">
+    <nav class="top-nav shell" aria-label="Presentation navigation">
+        <a class="brand" href="#home">BAUG Talk</a>
+        <div class="top-controls">
+            <button type="button" class="nav-chip nav-chip-nav" data-direction="prev"
+                aria-label="Go to the previous slide">← Prev</button>
+            <div class="nav-links" id="page-nav" aria-label="Nearby slide links"></div>
+            <button type="button" class="nav-chip nav-chip-nav" data-direction="next"
+                aria-label="Go to the next slide">Next →</button>
         </div>
-        <p class="muted">Add the real diagram here once the story is finalised.</p>
-      </aside>
+    </nav>
 
-      <section id="microsoft" class="card">
-        <h2>What Microsoft showed</h2>
-        <p>
-          Microsoft’s BRK221 narrative focused on runtime-first delivery: sandboxed execution, fast cold starts,
-          connector inheritance, and long-running operational continuity.
-        </p>
-        <ul class="bullet-list">
-          <li>Multi-agent orchestration and voice/text interactions.</li>
-          <li>Fast sandbox creation and resume behaviour.</li>
-          <li>Secure connectors for real enterprise data paths.</li>
-        </ul>
-      </section>
+    <main class="deck-shell">
+        <section id="home" class="deck-page active" aria-label="Home page">
+            <div class="shell deck-page-inner">
+                <div class="hero-grid">
+                    <article class="card hero-copy">
+                        <p class="eyebrow">Brisbane Azure User Group</p>
+                        <h1>Azure Container Apps as the AI Agent Runtime</h1>
+                        <p class="subtitle">Useful pattern or Build demo hype?</p>
+                        <p class="lead">A lightweight slide-style shell for the BAUG talk on Microsoft Build 2026,
+                            runtime-first AI agents, and why the platform may matter more than the model.</p>
+                        <p class="presenter">Damien Berry</p>
+                        <p class="muted">This is the working presentation shell for the talk, the demo notes, and future
+                            GitHub Pages content.</p>
+                    </article>
 
-      <section id="runtime" class="card">
-        <h2>Why runtime matters</h2>
-        <p>
-          The runtime is the layer that turns an AI model into a durable system. It determines whether the agent is
-          usable, trustworthy, and cost-effective when real users depend on it.
-        </p>
-        <div class="mini-grid">
-          <article class="mini-card">Cost control</article>
-          <article class="mini-card">Security isolation</article>
-          <article class="mini-card">Fast cold starts</article>
-          <article class="mini-card">Persistence</article>
-          <article class="mini-card">Environment stitching</article>
-        </div>
-      </section>
+                    <aside class="card hero-qr" aria-label="QR code for the presentation site">
+                        <h2>Scan to open</h2>
+                        <p class="muted">Use this QR code to open the talk shell from a phone in the room.</p>
+                        <img class="qr-image"
+                            src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https://damien-berry.github.io/BAUG_ContainerApp/"
+                            alt="QR code for the BAUG presentation site" width="280" height="280" />
+                        <p class="qr-link">https://damien-berry.github.io/BAUG_ContainerApp/</p>
+                    </aside>
+                </div>
 
-      <section id="aca" class="card">
-        <h2>Why Azure Container Apps</h2>
-        <p>
-          Azure Container Apps is a practical platform for this talk because it combines serverless execution, easy
-          integration, and the kind of operational primitives that agent systems need.
-        </p>
-        <ul class="bullet-list">
-          <li>Simple deployment path for container-based agent workloads.</li>
-          <li>Good fit for experimentation, iteration, and later production hardening.</li>
-          <li>Room to add observability, connectors, and scaling decisions over time.</li>
-        </ul>
-      </section>
+                <footer class="footer-card">
+                    <p>Prepared for the Brisbane Azure User Group talk.</p>
+                    <p>Last updated: <span id="updated-date">2026</span></p>
+                    <p>Source: GitHub Repository</p>
+                </footer>
+            </div>
+        </section>
 
-      <section id="today" class="card">
-        <h2>What I would use today</h2>
-        <p>
-          Today I would use this pattern for controlled prototypes, internal assistants, and bounded automation where
-          runtime behaviour matters more than raw model novelty.
-        </p>
-        <ul class="bullet-list">
-          <li>Demo walkthrough placeholder</li>
-          <li>Azure deployment notes placeholder</li>
-          <li>GitHub repo link placeholder</li>
-        </ul>
-      </section>
+        <section id="problem" class="deck-page" aria-label="Problem page">
+            <article class="shell deck-card">
+                <p class="eyebrow">02 / Problem</p>
+                <h2>Why agent projects fail</h2>
+                <img class="deck-image" src="Img/FivePlacesTheRuntimeBreaks.jpg"
+                    alt="Placeholder runtime failure image" />
+                <div class="placeholder-box">Placeholder content for the runtime pain points behind failed AI agent
+                    projects: cost,
+                    isolation, persistence, latency, and environment complexity.</div>
+                <nav class="deck-nav"><a href="#recap">Previous</a><a href="#home">Back to home</a><a
+                        href="#runtime">Next</a></nav>
+            </article>
+        </section>
 
-      <section id="skeptical" class="card">
-        <h2>What I am sceptical about</h2>
-        <p>
-          The hype is real, but the operational story still needs discipline. I want to keep the talk grounded in
-          what stands up in production rather than what looks impressive on stage.
-        </p>
-        <ul class="bullet-list">
-          <li>Agent loops are still expensive if not tightly governed.</li>
-          <li>Tool access and sandbox boundaries must be explicit.</li>
-          <li>Long-lived agent state needs careful design review.</li>
-        </ul>
-      </section>
+        <section id="runtime" class="deck-page" aria-label="Runtime page">
+            <article class="shell deck-card">
+                <p class="eyebrow">03 / Runtime</p>
+                <h2>What an agent runtime must do</h2>
+                <p class="lead">Placeholder content for the runtime requirements that matter in production: cost
+                    control, isolation, cold starts, state, connectors, and orchestration.</p>
+                <img class="deck-image" src="Img/FiveThingsTheRuntimeNeedsToDo.jpg"
+                    alt="Placeholder runtime requirements image" />
+                <nav class="deck-nav"><a href="#problem">Previous</a><a href="#home">Back to home</a><a
+                        href="#demo-1">Next</a></nav>
+            </article>
+        </section>
 
-      <section id="demo" class="card">
-        <h2>Demo plan</h2>
-        <p>
-          This page is the first skeleton for the talk. The demo plan and notes can grow here without changing the
-          underlying site structure.
-        </p>
-        <ul class="bullet-list">
-          <li>Demo walkthrough: add the live flow and talking points.</li>
-          <li>Azure deployment notes: add environment, secrets, and setup steps.</li>
-          <li>Questions from the audience: capture follow-up themes here later.</li>
-        </ul>
-      </section>
+        <section id="demo-1" class="deck-page" aria-label="Demo page 1">
+            <article class="shell deck-card">
+                <p class="eyebrow">05 / Demo 1</p>
+                <h2>Demo step 1</h2>
+                <img class="deck-image" src="Img/1_DemoHome.jpg" alt="Demo screenshot 1" />
+                <div class="placeholder-box">Opening the Build demo story with the agent home view and first runtime
+                    touchpoint.</div>
+                <nav class="deck-nav"><a href="#runtime">Previous</a><a href="#home">Back to home</a><a
+                        href="#demo-2">Next</a></nav>
+            </article>
+        </section>
 
-      <section class="card">
-        <h2>Presenter hooks</h2>
-        <p>Use these placeholders as the talk grows:</p>
-        <ul class="bullet-list">
-          <li><strong>GitHub repo link:</strong> add the repository URL once the code path is ready.</li>
-          <li><strong>Architecture diagram:</strong> replace the placeholder box with the real visual.</li>
-          <li><strong>Questions from the audience:</strong> reserve a space for FAQs and follow-up notes.</li>
-        </ul>
-      </section>
+        <section id="demo-2" class="deck-page" aria-label="Demo page 2">
+            <article class="shell deck-card">
+                <p class="eyebrow">06 / Demo 2</p>
+                <h2>Demo step 2</h2>
+                <img class="deck-image" src="Img/2_DemoMicCheck.jpg" alt="Demo screenshot 2" />
+                <div class="placeholder-box">The microphone and prompt-check moment that sets up the live experience.
+                </div>
+                <nav class="deck-nav"><a href="#demo-1">Previous</a><a href="#home">Back to home</a><a
+                        href="#demo-3">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="demo-3" class="deck-page" aria-label="Demo page 3">
+            <article class="shell deck-card">
+                <p class="eyebrow">07 / Demo 3</p>
+                <h2>Demo step 3</h2>
+                <img class="deck-image" src="Img/3_DemoBuildApp.jpg" alt="Demo screenshot 3" />
+                <div class="placeholder-box">Building the app and showing the runtime path the demo follows in the agent
+                    workflow.</div>
+                <nav class="deck-nav"><a href="#demo-2">Previous</a><a href="#home">Back to home</a><a
+                        href="#demo-4">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="demo-4" class="deck-page" aria-label="Demo page 4">
+            <article class="shell deck-card">
+                <p class="eyebrow">08 / Demo 4</p>
+                <h2>Demo step 4</h2>
+                <img class="deck-image" src="Img/4_DemoCalendarUpdate.jpg" alt="Demo screenshot 4" />
+                <div class="placeholder-box">The calendar update moment that shows the agent acting on live data and
+                    state.</div>
+                <nav class="deck-nav"><a href="#demo-3">Previous</a><a href="#home">Back to home</a><a
+                        href="#demo-5">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="demo-5" class="deck-page" aria-label="Demo page 5">
+            <article class="shell deck-card">
+                <p class="eyebrow">09 / Demo 5</p>
+                <h2>Demo step 5</h2>
+                <img class="deck-image" src="Img/5_DemoCalendarResponse.jpg" alt="Demo screenshot 5" />
+                <div class="placeholder-box">The agent response that closes the loop and demonstrates the final result
+                    end to end.</div>
+                <nav class="deck-nav"><a href="#demo-4">Previous</a><a href="#home">Back to home</a><a
+                        href="#architecture">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="architecture" class="deck-page" aria-label="Architecture page">
+            <article class="shell deck-card">
+                <p class="eyebrow">10 / Architecture</p>
+                <h2>Architecture demonstrated at Build</h2>
+                <img class="deck-image" src="Img/DemoSenario.jpg" alt="Placeholder architecture image" />
+                <div class="placeholder-box">Placeholder content for the platform architecture, runtime boundaries, and
+                    agent system layout that Microsoft demonstrated.</div>
+                <nav class="deck-nav"><a href="#demo-5">Previous</a><a href="#home">Back to home</a><a
+                        href="#sandboxes">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="sandboxes" class="deck-page" aria-label="Sandboxes page">
+            <article class="shell deck-card">
+                <p class="eyebrow">11 / Sandboxes</p>
+                <h2>The actual announcement: ACA Sandboxes</h2>
+                <p class="lead">Placeholder content for the sandbox announcement, seed environment, snapshots, and how
+                    isolation changes the agent runtime story.</p>
+                <img class="deck-image" src="Img/ACA_Sandboxes_Usecases.jpg" alt="Placeholder sandbox image" />
+                <nav class="deck-nav"><a href="#demo-5">Previous</a><a href="#home">Back to home</a><a
+                        href="#identity">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="identity" class="deck-page" aria-label="Identity page">
+            <article class="shell deck-card">
+                <p class="eyebrow">12 / Identity</p>
+                <h2>Entra, Graph, connectors, and delegated access</h2>
+                <p class="lead">Placeholder content for identity, delegated access, security boundaries, and how
+                    connectors fit into a real agent architecture.</p>
+                <div class="placeholder-box">Future diagram placeholder</div>
+                <nav class="deck-nav"><a href="#sandboxes">Previous</a><a href="#home">Back to home</a><a
+                        href="#my-take">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="my-take" class="deck-page" aria-label="My take page">
+            <article class="shell deck-card">
+                <p class="eyebrow">13 / My Take</p>
+                <h2>Runtime is the product</h2>
+                <p class="lead">Placeholder content for the presenter’s point of view: ACA = compute, Sandboxes =
+                    isolation, Graph = data, Entra = trust.</p>
+                <ul class="bullet-list">
+                    <li>ACA is the compute layer for the agent runtime.</li>
+                    <li>Sandboxes make isolation and reuse practical.</li>
+                    <li>Graph and connectors provide real world context.</li>
+                    <li>Entra supplies the trust and identity layer.</li>
+                </ul>
+                <nav class="deck-nav"><a href="#identity">Previous</a><a href="#home">Back to home</a><a
+                        href="#demo-plan">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="demo-plan" class="deck-page" aria-label="Demo plan page">
+            <article class="shell deck-card">
+                <p class="eyebrow">14 / Demo Plan</p>
+                <h2>Placeholder for my later demo</h2>
+                <p class="lead">Placeholder content for the later live demo order, talking points, and what to show on
+                    the day.</p>
+                <div class="placeholder-box">Demo notes will go here later.</div>
+                <nav class="deck-nav"><a href="#my-take">Previous</a><a href="#home">Back to home</a><a
+                        href="#recap">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="recap" class="deck-page" aria-label="Recap page">
+            <article class="shell deck-card">
+                <p class="eyebrow">15 / Recap</p>
+                <h2>What Microsoft presented at Build 2026</h2>
+                <p class="lead">Placeholder content for the session intro, the Build title image, and the main idea of
+                    moving from prompt to production-ready agent quickly.</p>
+                <img class="deck-image" src="Img/ACA_SandboxesMarketing.jpg" alt="Placeholder Build session image" />
+                <nav class="deck-nav"><a href="#demo-plan">Previous</a><a href="#home">Back to home</a><a
+                        href="#resources">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="resources" class="deck-page" aria-label="Resources page">
+            <article class="shell deck-card">
+                <p class="eyebrow">16 / Resources</p>
+                <h2>Resources</h2>
+                <p class="lead">Placeholder content for repo links, Microsoft Build resources, Azure Container Apps
+                    docs, and future references.</p>
+                <ul class="bullet-list">
+                    <li><a href="https://github.com/damien-berry/BAUG_ContainerApp" target="_blank"
+                            rel="noreferrer">GitHub repository</a></li>
+                    <li><a href="https://build.microsoft.com" target="_blank" rel="noreferrer">Microsoft Build</a></li>
+                    <li><a href="https://learn.microsoft.com/azure/container-apps/" target="_blank"
+                            rel="noreferrer">Azure Container Apps docs</a></li>
+                </ul>
+                <nav class="deck-nav"><a href="#recap">Previous</a><a href="#home">Back to home</a></nav>
+            </article>
+        </section>
     </main>
 
-    <footer class="shell footer-card">
-      <p>Prepared for the Brisbane Azure User Group talk.</p>
-      <p>Static GitHub Pages skeleton — simple HTML, CSS, and minimal JavaScript.</p>
-      <p>Last updated: <span id="updated-date">2026</span></p>
-    </footer>
+    <script src="app.js?v=2"></script>
+</body>
 
-    <script src="app.js"></script>
-  </body>
 </html>
