@@ -22,3 +22,15 @@ For the talk, the key takeaway is that Azure Container Apps is not just a shiny 
 
 - Useful pattern or build-demo hype? The transcript strongly supports the “useful pattern” side.
 - The strongest message is not “AI agents are exciting,” but “the runtime is what turns models into dependable production systems.”
+
+## Skeleton update
+
+This repo now includes a simple static GitHub Pages landing page in docs/index.html with placeholder sections for:
+
+- the architecture diagram
+- a demo walkthrough
+- the GitHub repo link
+- Azure deployment notes
+- questions from the audience
+
+The goal is to keep the first version boring, readable, and easy to extend as the talk content matures.

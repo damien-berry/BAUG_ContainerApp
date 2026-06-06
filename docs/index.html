@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azure Container Apps as the AI Agent Runtime</title>
+    <meta
+      name="description"
+      content="A simple GitHub Pages skeleton for the Brisbane Azure User Group talk on Azure Container Apps and production AI agents."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero shell">
+      <p class="eyebrow">Brisbane Azure User Group</p>
+      <h1>Azure Container Apps as the AI Agent Runtime</h1>
+      <p class="subtitle">Useful pattern or Build demo hype?</p>
+      <p class="presenter">Damien Berry</p>
+
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#problem">The problem</a>
+        <a href="#microsoft">What Microsoft showed</a>
+        <a href="#runtime">Why runtime matters</a>
+        <a href="#aca">Why Azure Container Apps</a>
+        <a href="#today">What I would use today</a>
+        <a href="#skeptical">What I am sceptical about</a>
+        <a href="#demo">Demo plan</a>
+      </nav>
+    </header>
+
+    <main class="shell page-grid">
+      <section id="problem" class="card">
+        <h2>The problem</h2>
+        <p>
+          The real challenge for AI agents is not only the model. It is the operating environment that makes the
+          agent responsive, secure, observable, and affordable in production.
+        </p>
+        <ul class="bullet-list">
+          <li>Runaway loops and repeated tool calls can quickly inflate cost.</li>
+          <li>Untrusted code paths need strong isolation.</li>
+          <li>Long-running tasks need persistence and fast resume behavior.</li>
+        </ul>
+      </section>
+
+      <aside class="card accent-card" aria-labelledby="architecture-title">
+        <h2 id="architecture-title">Architecture diagram</h2>
+        <p class="muted">Placeholder hook for the future architecture visual.</p>
+        <div class="diagram-box" role="img" aria-label="Architecture diagram placeholder">
+          <span>Model</span>
+          <span>Agent runtime</span>
+          <span>Tools &amp; connectors</span>
+          <span>Observability</span>
+        </div>
+        <p class="muted">Add the real diagram here once the story is finalised.</p>
+      </aside>
+
+      <section id="microsoft" class="card">
+        <h2>What Microsoft showed</h2>
+        <p>
+          Microsoft’s BRK221 narrative focused on runtime-first delivery: sandboxed execution, fast cold starts,
+          connector inheritance, and long-running operational continuity.
+        </p>
+        <ul class="bullet-list">
+          <li>Multi-agent orchestration and voice/text interactions.</li>
+          <li>Fast sandbox creation and resume behaviour.</li>
+          <li>Secure connectors for real enterprise data paths.</li>
+        </ul>
+      </section>
+
+      <section id="runtime" class="card">
+        <h2>Why runtime matters</h2>
+        <p>
+          The runtime is the layer that turns an AI model into a durable system. It determines whether the agent is
+          usable, trustworthy, and cost-effective when real users depend on it.
+        </p>
+        <div class="mini-grid">
+          <article class="mini-card">Cost control</article>
+          <article class="mini-card">Security isolation</article>
+          <article class="mini-card">Fast cold starts</article>
+          <article class="mini-card">Persistence</article>
+          <article class="mini-card">Environment stitching</article>
+        </div>
+      </section>
+
+      <section id="aca" class="card">
+        <h2>Why Azure Container Apps</h2>
+        <p>
+          Azure Container Apps is a practical platform for this talk because it combines serverless execution, easy
+          integration, and the kind of operational primitives that agent systems need.
+        </p>
+        <ul class="bullet-list">
+          <li>Simple deployment path for container-based agent workloads.</li>
+          <li>Good fit for experimentation, iteration, and later production hardening.</li>
+          <li>Room to add observability, connectors, and scaling decisions over time.</li>
+        </ul>
+      </section>
+
+      <section id="today" class="card">
+        <h2>What I would use today</h2>
+        <p>
+          Today I would use this pattern for controlled prototypes, internal assistants, and bounded automation where
+          runtime behaviour matters more than raw model novelty.
+        </p>
+        <ul class="bullet-list">
+          <li>Demo walkthrough placeholder</li>
+          <li>Azure deployment notes placeholder</li>
+          <li>GitHub repo link placeholder</li>
+        </ul>
+      </section>
+
+      <section id="skeptical" class="card">
+        <h2>What I am sceptical about</h2>
+        <p>
+          The hype is real, but the operational story still needs discipline. I want to keep the talk grounded in
+          what stands up in production rather than what looks impressive on stage.
+        </p>
+        <ul class="bullet-list">
+          <li>Agent loops are still expensive if not tightly governed.</li>
+          <li>Tool access and sandbox boundaries must be explicit.</li>
+          <li>Long-lived agent state needs careful design review.</li>
+        </ul>
+      </section>
+
+      <section id="demo" class="card">
+        <h2>Demo plan</h2>
+        <p>
+          This page is the first skeleton for the talk. The demo plan and notes can grow here without changing the
+          underlying site structure.
+        </p>
+        <ul class="bullet-list">
+          <li>Demo walkthrough: add the live flow and talking points.</li>
+          <li>Azure deployment notes: add environment, secrets, and setup steps.</li>
+          <li>Questions from the audience: capture follow-up themes here later.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Presenter hooks</h2>
+        <p>Use these placeholders as the talk grows:</p>
+        <ul class="bullet-list">
+          <li><strong>GitHub repo link:</strong> add the repository URL once the code path is ready.</li>
+          <li><strong>Architecture diagram:</strong> replace the placeholder box with the real visual.</li>
+          <li><strong>Questions from the audience:</strong> reserve a space for FAQs and follow-up notes.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="shell footer-card">
+      <p>Prepared for the Brisbane Azure User Group talk.</p>
+      <p>Static GitHub Pages skeleton — simple HTML, CSS, and minimal JavaScript.</p>
+      <p>Last updated: <span id="updated-date">2026</span></p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
