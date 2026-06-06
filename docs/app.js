@@ -6,9 +6,14 @@ const pages = [
     'demo-1',
     'demo-2',
     'sandboxes',
+    'session-groups',
+    'snapshots',
+    'egress-policies',
     'identity',
     'my-take',
-    'demo-plan',
+    'where-i-would-use-it',
+    'trust-spectrum',
+    'adoption-criteria',
     'recap',
     'resources'
 ];
@@ -22,9 +27,14 @@ const pageLabels = {
     'demo-1': 'Demo 1',
     'demo-2': 'Demo 2',
     sandboxes: 'Sandboxes',
+    'session-groups': 'Session Groups',
+    snapshots: 'Snapshots',
+    'egress-policies': 'Egress Policies',
     identity: 'Identity',
     'my-take': 'My Take',
-    'demo-plan': 'Demo Plan',
+    'where-i-would-use-it': 'Where I Would Use It',
+    'trust-spectrum': 'Trust Spectrum',
+    'adoption-criteria': 'Adoption Criteria',
     resources: 'Resources'
 };
 

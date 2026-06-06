@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 
 <body id="top">
@@ -94,7 +94,7 @@
                     aria-label="Play architecture clip for the sandboxes overview">
                     <img class="deck-image" src="Img/DemoSenario.jpg" alt="Placeholder architecture image" />
                 </a>
-                <div class="placeholder-box">Placeholder content for the platform architecture, runtime boundaries, and
+                <div class="placeholder-box">Platform architecture, runtime boundaries, and
                     agent system layout that Microsoft demonstrated.</div>
                 <nav class="deck-nav"><a href="#runtime">Previous</a><a href="#home">Back to home</a><a
                         href="#demo-1">Next</a></nav>
@@ -137,80 +137,546 @@
                 <h2>The actual announcement: ACA Sandboxes</h2>
                 <p class="lead">Seed environment, snapshots, isolation - changes the agent runtime story.</p>
                 <img class="deck-image" src="Img/ACA_Sandboxes_Usecases.jpg" alt="Placeholder sandbox image" />
-                <div class="placeholder-box">Placeholder content for the sandbox announcement, seed environment,
+                <div class="placeholder-box">Sandbox announcement, seed environment,
                     snapshots, and how
                     isolation changes the agent runtime story.</div>
                 <nav class="deck-nav"><a href="#demo-2">Previous</a><a href="#home">Back to home</a><a
+                        href="#session-groups">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="session-groups" class="deck-page" aria-label="Session groups page">
+            <article class="shell deck-card">
+                <p class="eyebrow">08 / Session Groups</p>
+                <h2>Session Groups: The Missing Piece</h2>
+                <p class="lead">Explain how Azure Container Apps Sandboxes are organised and why the Build demo
+                    appeared to magically inherit access to Teams, Calendar and Email.</p>
+                <p class="lead"><a href="https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-overview"
+                        target="_blank" rel="noreferrer">Azure Container Apps sandboxes overview</a></p>
+                <div class="placeholder-box">
+                    <pre class="session-diagram">User
+↓
+Session Group
+├─ Connectors
+├─ Identity
+├─ Storage
+├─ Policies
+└─ Environment
+↓
+Session 1
+Session 2
+Session 3</pre>
+                </div>
+                <ul class="bullet-list">
+                    <li>Sessions belong to a Session Group.</li>
+                    <li>Session Groups define shared configuration.</li>
+                    <li>Connectors are attached at the Session Group level.</li>
+                    <li>New sessions inherit configuration automatically.</li>
+                    <li>This explains how agents in the Build demo immediately accessed Teams and Calendar.</li>
+                </ul>
+                <div class="placeholder-box">When I first watched the demo I assumed every sandbox was individually
+                    configured. After reading the documentation it appears Session Groups own the shared configuration
+                    and sessions inherit it. This is likely how Microsoft enables rapid sandbox creation while
+                    preserving a security boundary.</div>
+                <nav class="deck-nav"><a href="#sandboxes">Previous</a><a href="#home">Back to home</a><a
+                        href="#snapshots">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="snapshots" class="deck-page" aria-label="Snapshots page">
+            <article class="shell deck-card">
+                <p class="eyebrow">09 / Snapshots and State Management</p>
+                <h2>Snapshots and State Management</h2>
+                <p class="lead">Explain why ACA Sandboxes are more than disposable containers.</p>
+                <p class="lead"><a
+                        href="https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-snapshots-state-management"
+                        target="_blank" rel="noreferrer">Azure Container Apps sandboxes snapshots and state
+                        management</a></p>
+                <div class="placeholder-box">
+                    <pre class="session-diagram">Create Session
+↓
+Install Tools
+↓
+Authenticate
+↓
+Load Files
+↓
+Create Snapshot
+↓
+Resume Later
+↓
+Clone Session</pre>
+                </div>
+                <ul class="bullet-list">
+                    <li>Sessions can be snapshotted.</li>
+                    <li>State can persist across executions.</li>
+                    <li>Sandboxes can be resumed instead of recreated.</li>
+                    <li>Existing sessions can be cloned.</li>
+                    <li>Long-running agent workflows become possible.</li>
+                </ul>
+                <div class="placeholder-box">Traditional containers are usually disposable. ACA Sandboxes introduce the
+                    concept of persistent state and snapshots. This starts to look less like container orchestration and
+                    more like a managed runtime designed specifically for agents.</div>
+                <nav class="deck-nav"><a href="#session-groups">Previous</a><a href="#home">Back to home</a><a
+                        href="#egress-policies">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="egress-policies" class="deck-page" aria-label="Egress policies page">
+            <article class="shell deck-card">
+                <p class="eyebrow">10 / Trust Through Egress Control</p>
+                <h2>Trust Through Egress Control</h2>
+                <p class="lead">Explain why ACA Sandboxes may be suitable for executing AI-generated code.</p>
+                <p class="lead"><a
+                        href="https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-egress-policies"
+                        target="_blank" rel="noreferrer">Azure Container Apps sandboxes egress policies</a></p>
+                <div class="placeholder-box">
+                    <pre class="session-diagram">AI Agent
+↓
+Sandbox
+↓
+Egress Policy
+├─ Allow Graph
+├─ Allow GitHub
+├─ Allow Jira
+├─ Allow Internal API
+└─ Block Everything Else
+
+Internet</pre>
+                </div>
+                <ul class="bullet-list">
+                    <li>Sandboxes can restrict outbound network access.</li>
+                    <li>Access can be explicitly allow-listed.</li>
+                    <li>AI-generated code can be prevented from calling arbitrary endpoints.</li>
+                    <li>Security is enforced by the platform rather than relying entirely on prompts.</li>
+                    <li>Policies apply regardless of what code the agent generates.</li>
+                </ul>
+                <div class="placeholder-box">This was the point where ACA Sandboxes became genuinely interesting. The
+                    challenge with agent-generated code is not writing the code. The challenge is controlling what that
+                    code can access. Egress policies provide a platform-level security boundary. Instead of trusting the
+                    model, we constrain the runtime.</div>
+                <nav class="deck-nav"><a href="#snapshots">Previous</a><a href="#home">Back to home</a><a
                         href="#identity">Next</a></nav>
             </article>
         </section>
 
         <section id="identity" class="deck-page" aria-label="Identity page">
             <article class="shell deck-card">
-                <p class="eyebrow">08 / Identity</p>
-                <h2>Entra, Graph, connectors, and delegated access</h2>
-                <p class="lead">Placeholder content for identity, delegated access, security boundaries, and how
-                    connectors fit into a real agent architecture.</p>
-                <div class="placeholder-box">Future diagram placeholder</div>
-                <nav class="deck-nav"><a href="#sandboxes">Previous</a><a href="#home">Back to home</a><a
+                <p class="eyebrow">11 / Identity, Connectors and Trust</p>
+                <h2>Identity, Connectors and Trust</h2>
+                <p class="lead">What we know from the Build demo and documentation</p>
+
+                <div class="deck-grid identity-grid">
+                    <section class="identity-card">
+                        <h3>What We Observed</h3>
+                        <div class="identity-diagram-shell">
+                            <pre class="session-diagram">User Identity
+↓
+Session Group
+↓
+Connectors
+↓
+Enterprise Systems</pre>
+                        </div>
+                        <p class="muted">Examples from the Build demo: Calendar, Teams, Email.</p>
+                        <ul class="bullet-list">
+                            <li>Connectors were demonstrated accessing user-centric services.</li>
+                            <li>Sessions appear to inherit connector configuration from Session Groups.</li>
+                            <li>Connector configuration is not repeatedly configured per session.</li>
+                            <li>User context appears to be an important part of the runtime model.</li>
+                        </ul>
+                    </section>
+
+                    <section class="identity-card">
+                        <h3>Questions Raised</h3>
+                        <ul class="question-list">
+                            <li>Who grants consent?</li>
+                            <li>Who owns the token?</li>
+                            <li>What is the isolation boundary?</li>
+                            <li>How is access audited?</li>
+                            <li>What happens when tokens expire?</li>
+                            <li>Can User A access User B data?</li>
+                            <li>Can application identities be used instead of user identities?</li>
+                        </ul>
+                    </section>
+                </div>
+
+                <section class="identity-observation">
+                    <h3>Observation</h3>
+                    <p>The ACA Sandbox model appears to be identity-aware, not merely container-aware.</p>
+                    <p>The Build demo and documentation show identity, connectors and session groups working together to
+                        provide access to enterprise systems.</p>
+                    <p>At this stage it is clear identity is important to the platform, but the precise security and
+                        tenancy model requires deeper investigation.</p>
+                </section>
+
+                <div class="placeholder-box">When I first watched the Build session I assumed the sandbox itself was
+                    being configured with access to Teams and Calendar. After reviewing the documentation, it appears
+                    Session Groups own shared configuration and sessions inherit that configuration. This is a more
+                    enterprise-friendly model, but it raises important architecture questions around identity, consent,
+                    auditing and tenancy boundaries.</div>
+
+                <nav class="deck-nav"><a href="#egress-policies">Previous</a><a href="#home">Back to home</a><a
                         href="#my-take">Next</a></nav>
             </article>
         </section>
 
         <section id="my-take" class="deck-page" aria-label="My take page">
             <article class="shell deck-card">
-                <p class="eyebrow">09 / My Take</p>
-                <h2>Runtime is the product</h2>
-                <p class="lead">Placeholder content for the presenter’s point of view: ACA = compute, Sandboxes =
-                    isolation, Graph = data, Entra = trust.</p>
-                <ul class="bullet-list">
-                    <li>ACA is the compute layer for the agent runtime.</li>
-                    <li>Sandboxes make isolation and reuse practical.</li>
-                    <li>Graph and connectors provide real world context.</li>
-                    <li>Entra supplies the trust and identity layer.</li>
-                </ul>
+                <p class="eyebrow">12 / My Take</p>
+                <h2>My Take</h2>
+                <p class="lead">What I think Microsoft is really building</p>
+                <p class="muted">Damien's Interpretation</p>
+
+                <div class="my-take-grid">
+                    <article class="my-take-card">
+                        <h3>ACA = Compute</h3>
+                        <p>Azure Container Apps is the execution platform.</p>
+                        <p>The runtime provides:</p>
+                        <ul class="bullet-list">
+                            <li>Scale</li>
+                            <li>Isolation</li>
+                            <li>Startup performance</li>
+                            <li>Session lifecycle</li>
+                        </ul>
+                        <p class="muted">Observation: This is the foundation layer.</p>
+                    </article>
+
+                    <article class="my-take-card">
+                        <h3>Sandboxes = Isolation</h3>
+                        <p>The most significant announcement in the session.</p>
+                        <p>Sandboxes provide:</p>
+                        <ul class="bullet-list">
+                            <li>Secure code execution</li>
+                            <li>Session persistence</li>
+                            <li>Snapshots</li>
+                            <li>Session groups</li>
+                            <li>Egress controls</li>
+                        </ul>
+                        <p class="muted">Observation: This feels like a new runtime category designed specifically for
+                            agent workloads.</p>
+                    </article>
+
+                    <article class="my-take-card">
+                        <h3>Connectors = Capability</h3>
+                        <p>Agents become useful when they can interact with systems.</p>
+                        <p>Examples:</p>
+                        <ul class="bullet-list">
+                            <li>Email</li>
+                            <li>Calendar</li>
+                            <li>Teams</li>
+                            <li>GitHub</li>
+                            <li>Internal APIs</li>
+                        </ul>
+                        <p class="muted">Observation: The sandbox runs the agent. The connectors allow it to perform
+                            work.</p>
+                    </article>
+
+                    <article class="my-take-card">
+                        <h3>Identity = Trust</h3>
+                        <p>Identity appears throughout the architecture.</p>
+                        <p>Examples:</p>
+                        <ul class="bullet-list">
+                            <li>Connector access</li>
+                            <li>User context</li>
+                            <li>Session ownership</li>
+                            <li>Consent</li>
+                            <li>Auditing</li>
+                        </ul>
+                        <p class="muted">Observation: The runtime appears to be identity-aware rather than simply
+                            container-aware.</p>
+                    </article>
+                </div>
+
+                <section class="my-take-big-shift">
+                    <h3>The Big Shift</h3>
+                    <div class="big-shift-grid">
+                        <article class="shift-card">
+                            <h4>Traditional Thinking</h4>
+                            <pre class="session-diagram">Model
+↓
+Application
+↓
+Database</pre>
+                        </article>
+                        <article class="shift-card">
+                            <h4>Agent Thinking</h4>
+                            <pre class="session-diagram">Model
+↓
+Runtime
+↓
+Identity
+↓
+Tools
+↓
+Systems</pre>
+                        </article>
+                    </div>
+                    <p class="lead">My biggest takeaway from Build 2026 was that Microsoft is focusing less on the model
+                        and more on the runtime.</p>
+                    <p class="lead">The difficult part of enterprise AI is not generating tokens. The difficult part is
+                        safely running agents that can interact with real systems.</p>
+                </section>
+
+                <div class="placeholder-box">I expected a presentation about agents. Instead I think I watched a
+                    presentation about runtimes. The demo was interesting. The announcement was Sandboxes. The
+                    documentation reinforced that identity, session management, persistence and network controls are
+                    becoming first-class concerns. The models will continue to improve. The runtime is where most of the
+                    engineering effort will live.</div>
+
                 <nav class="deck-nav"><a href="#identity">Previous</a><a href="#home">Back to home</a><a
-                        href="#demo-plan">Next</a></nav>
+                        href="#where-i-would-use-it">Next</a></nav>
             </article>
         </section>
 
-        <section id="demo-plan" class="deck-page" aria-label="Demo plan page">
+        <section id="where-i-would-use-it" class="deck-page" aria-label="Where I would use it page">
             <article class="shell deck-card">
-                <p class="eyebrow">10 / Demo Plan</p>
-                <h2>Placeholder for my later demo</h2>
-                <p class="lead">Placeholder content for the later live demo order, talking points, and what to show on
-                    the day.</p>
-                <div class="placeholder-box">Demo notes will go here later.</div>
+                <p class="eyebrow">13 / Where I Would Use ACA Sandboxes</p>
+                <h2>Where I Would Use ACA Sandboxes</h2>
+                <p class="lead">Not every workload needs a sandbox</p>
+
+                <div class="my-take-grid use-cases-grid">
+                    <article class="my-take-card">
+                        <h3>Strong Fit</h3>
+                        <ul class="bullet-list">
+                            <li>AI generated code</li>
+                            <li>User supplied scripts</li>
+                            <li>Browser automation</li>
+                            <li>Multi-tenant AI platforms</li>
+                            <li>Interactive coding environments</li>
+                        </ul>
+                        <p class="muted">Observation: The workload is not fully trusted.</p>
+                    </article>
+
+                    <article class="my-take-card">
+                        <h3>Possible Fit</h3>
+                        <ul class="bullet-list">
+                            <li>Enterprise assistants</li>
+                            <li>Graph-connected agents</li>
+                            <li>Research agents</li>
+                            <li>Long-running workflows</li>
+                        </ul>
+                        <p class="muted">Observation: More operational guidance is needed.</p>
+                    </article>
+
+                    <article class="my-take-card">
+                        <h3>Weak Fit</h3>
+                        <ul class="bullet-list">
+                            <li>Traditional APIs</li>
+                            <li>Business applications</li>
+                            <li>Integration services</li>
+                            <li>Known code paths</li>
+                        </ul>
+                        <p class="muted">Observation: The sandbox solves a problem that may not exist.</p>
+                    </article>
+                </div>
+
+                <div class="placeholder-box">Just because something can run in a sandbox does not mean it should. The
+                    strongest use cases involve workloads where the code, user or execution path is not fully trusted.
+                </div>
+
                 <nav class="deck-nav"><a href="#my-take">Previous</a><a href="#home">Back to home</a><a
+                        href="#trust-spectrum">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="trust-spectrum" class="deck-page" aria-label="Trust spectrum page">
+            <article class="shell deck-card">
+                <p class="eyebrow">14 / The Trust Spectrum</p>
+                <h2>The Trust Spectrum</h2>
+                <p class="lead">The less I trust the workload, the more attractive Sandboxes become</p>
+
+                <div class="trust-spectrum-card">
+                    <div class="trust-spectrum-label trust-top">Trusted</div>
+                    <div class="trust-spectrum-scale">
+                        <div class="trust-step trust-step-low">Traditional API</div>
+                        <div class="trust-step trust-step-low">Azure Function</div>
+                        <div class="trust-step trust-step-low">Container App</div>
+                        <div class="trust-step trust-step-mid">Agent with Approved Tools</div>
+                        <div class="trust-step trust-step-high">ACA Sandbox</div>
+                        <div class="trust-step trust-step-high">AI Generated Code</div>
+                        <div class="trust-step trust-step-very-high">Unknown User Code</div>
+                    </div>
+                    <div class="trust-spectrum-label trust-bottom">Untrusted</div>
+                    <div class="trust-spectrum-notes">
+                        <span class="trust-note trust-note-low">Known code</span>
+                        <span class="trust-note trust-note-mid">Partially trusted</span>
+                        <span class="trust-note trust-note-high">Untrusted execution</span>
+                    </div>
+                </div>
+
+                <p class="lead">ACA Sandboxes become most valuable when code execution cannot be fully trusted.</p>
+
+                <div class="placeholder-box">I don't think Sandboxes are competing with Functions. I think they are
+                    solving a different problem. The less confidence I have in what will execute, the more valuable the
+                    sandbox model becomes. This was the slide that helped me understand where the product fits.</div>
+
+                <nav class="deck-nav"><a href="#where-i-would-use-it">Previous</a><a href="#home">Back to home</a><a
+                        href="#adoption-criteria">Next</a></nav>
+            </article>
+        </section>
+
+        <section id="adoption-criteria" class="deck-page" aria-label="Adoption criteria page">
+            <article class="shell deck-card">
+                <p class="eyebrow">15 / What Would Make Me Use This Tomorrow?</p>
+                <h2>What Would Make Me Use This Tomorrow?</h2>
+
+                <div class="adoption-grid">
+                    <article class="adoption-card">
+                        <h3>Ready Today</h3>
+                        <ul class="bullet-list">
+                            <li>Isolation</li>
+                            <li>Session management</li>
+                            <li>Snapshots</li>
+                            <li>Egress control</li>
+                            <li>Multi-tenancy</li>
+                        </ul>
+                    </article>
+
+                    <article class="adoption-card">
+                        <h3>Need More Information</h3>
+                        <ul class="bullet-list">
+                            <li>Identity model</li>
+                            <li>Connector governance</li>
+                            <li>Cost at scale</li>
+                            <li>Monitoring</li>
+                            <li>Auditability</li>
+                        </ul>
+                    </article>
+
+                    <article class="adoption-card">
+                        <h3>Not Yet</h3>
+                        <ul class="bullet-list">
+                            <li>Core business workflows</li>
+                            <li>Mission critical integrations</li>
+                            <li>High assurance automation</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="placeholder-box">I wouldn't adopt Sandboxes because they are new. I would adopt Sandboxes
+                    when I need to execute workloads that I do not fully trust.</div>
+
+                <div class="placeholder-box">The product solves a real problem. The question is not whether it works.
+                    The question is whether your workload actually needs the isolation model it provides.</div>
+
+                <nav class="deck-nav"><a href="#trust-spectrum">Previous</a><a href="#home">Back to home</a><a
                         href="#recap">Next</a></nav>
             </article>
         </section>
 
         <section id="recap" class="deck-page" aria-label="Recap page">
             <article class="shell deck-card">
-                <p class="eyebrow">11 / Recap</p>
+                <p class="eyebrow">14 / Recap</p>
                 <h2>What Microsoft presented at Build 2026</h2>
-                <p class="lead">Placeholder content for the session intro, the Build title image, and the main idea of
-                    moving from prompt to production-ready agent quickly.</p>
                 <img class="deck-image" src="Img/ACA_SandboxesMarketing.jpg" alt="Placeholder Build session image" />
-                <nav class="deck-nav"><a href="#demo-plan">Previous</a><a href="#home">Back to home</a><a
+                <div class="placeholder-box"> </div>
+                <nav class="deck-nav"><a href="#my-take">Previous</a><a href="#home">Back to home</a><a
                         href="#resources">Next</a></nav>
             </article>
         </section>
 
         <section id="resources" class="deck-page" aria-label="Resources page">
             <article class="shell deck-card">
-                <p class="eyebrow">12 / Resources</p>
+                <p class="eyebrow">15 / Resources</p>
                 <h2>Resources</h2>
-                <p class="lead">Placeholder content for repo links, Microsoft Build resources, Azure Container Apps
-                    docs, and future references.</p>
-                <ul class="bullet-list">
-                    <li><a href="https://github.com/damien-berry/BAUG_ContainerApp" target="_blank"
-                            rel="noreferrer">GitHub repository</a></li>
-                    <li><a href="https://build.microsoft.com" target="_blank" rel="noreferrer">Microsoft Build</a></li>
-                    <li><a href="https://learn.microsoft.com/azure/container-apps/" target="_blank"
-                            rel="noreferrer">Azure Container Apps docs</a></li>
-                </ul>
+                <p class="lead">Everything referenced during this presentation</p>
+
+                <div class="resource-grid">
+                    <article class="resource-card">
+                        <h3>WATCH</h3>
+                        <p class="resource-label">Microsoft Build 2026 Session</p>
+                        <h4>BRK221 - Idea to Production Ready Agent in Seconds on AI Native Runtime</h4>
+                        <p>The original Microsoft Build session that inspired this presentation.</p>
+                        <a class="resource-link"
+                            href="https://github.com/microsoft/Build26-BRK221-idea-to-production-ready-agent-in-seconds-on-ai-native-runtime"
+                            target="_blank" rel="noreferrer">Open the Build session repository</a>
+                    </article>
+
+                    <article class="resource-card">
+                        <h3>READ</h3>
+                        <h4>Azure Container Apps Sandboxes Overview</h4>
+                        <p>Overview of sessions, session groups, connectors and sandbox architecture.</p>
+                        <a class="resource-link"
+                            href="https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-overview"
+                            target="_blank" rel="noreferrer">Read the overview</a>
+
+                        <h4>Azure Container Apps Snapshots and State Management</h4>
+                        <p>How sessions persist state, create snapshots and support long-running workloads.</p>
+                        <a class="resource-link"
+                            href="https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-snapshots-state-management"
+                            target="_blank" rel="noreferrer">Read about snapshots and state</a>
+
+                        <h4>Azure Container Apps Egress Policies</h4>
+                        <p>Network controls and outbound access restrictions for sandbox workloads.</p>
+                        <a class="resource-link"
+                            href="https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-egress-policies"
+                            target="_blank" rel="noreferrer">Read about egress policies</a>
+
+                        <h4>Azure Container Apps Documentation</h4>
+                        <p>General Azure Container Apps documentation.</p>
+                        <a class="resource-link" href="https://learn.microsoft.com/en-us/azure/container-apps/"
+                            target="_blank" rel="noreferrer">Browse the docs</a>
+                    </article>
+
+                    <article class="resource-card">
+                        <h3>BUILD</h3>
+                        <h4>Azure Container Apps</h4>
+                        <p>Official product page.</p>
+                        <a class="resource-link" href="https://azure.microsoft.com/products/container-apps"
+                            target="_blank" rel="noreferrer">Visit the product page</a>
+
+                        <h4>Azure AI Foundry</h4>
+                        <p>Microsoft's platform for building AI applications and agents.</p>
+                        <a class="resource-link" href="https://ai.azure.com" target="_blank" rel="noreferrer">Open Azure
+                            AI Foundry</a>
+
+                        <h4>Microsoft Graph</h4>
+                        <p>Identity-aware access to Microsoft 365 services.</p>
+                        <a class="resource-link" href="https://learn.microsoft.com/en-us/graph/" target="_blank"
+                            rel="noreferrer">Start with the Graph docs</a>
+
+                        <h4>Microsoft Entra ID</h4>
+                        <p>Identity platform used throughout the Microsoft ecosystem.</p>
+                        <a class="resource-link" href="https://learn.microsoft.com/en-us/entra/" target="_blank"
+                            rel="noreferrer">Explore Entra ID</a>
+                    </article>
+
+                    <article class="resource-card">
+                        <h3>THIS PRESENTATION</h3>
+                        <h4>Presentation Website</h4>
+                        <a class="resource-link" href="https://damien-berry.github.io/BAUG_ContainerApp/"
+                            target="_blank" rel="noreferrer">Open the presentation site</a>
+
+                        <h4>GitHub Repository</h4>
+                        <a class="resource-link" href="https://github.com/damien-berry/BAUG_ContainerApp"
+                            target="_blank" rel="noreferrer">Visit the repo</a>
+
+                        <h4>Brisbane Azure User Group</h4>
+                        <a class="resource-link" href="https://www.meetup.com/brisbane-azure-user-group/"
+                            target="_blank" rel="noreferrer">Join the group</a>
+                    </article>
+                </div>
+
+                <article class="resource-card resource-card-highlight">
+                    <h3>KEY TAKEAWAYS</h3>
+                    <ul class="bullet-list">
+                        <li>I expected a presentation about agents.</li>
+                        <li>I think I watched a presentation about runtimes.</li>
+                        <li>The most interesting announcement was not the model.</li>
+                        <li>The most interesting announcement was Sandboxes.</li>
+                        <li>Identity, connectors, session groups, snapshots and egress controls appear to be becoming
+                            first-class runtime concerns.</li>
+                    </ul>
+                </article>
+
+                <aside class="notes-strip" aria-label="Speaker notes">
+                    <p class="eyebrow">Speaker Notes</p>
+                    <p>This page should act as a landing page after the presentation. People should be able to revisit
+                        the material, watch the original Build session, read the documentation and continue
+                        experimenting with Azure Container Apps Sandboxes themselves.</p>
+                </aside>
+
                 <nav class="deck-nav"><a href="#recap">Previous</a><a href="#home">Back to home</a></nav>
             </article>
         </section>
