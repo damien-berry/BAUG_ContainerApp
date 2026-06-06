@@ -1,36 +1,41 @@
 # Presentation thinking
 
-## One-page explanation: why the runtime, not the model, is now the critical component
+## Current framing
 
-Microsoft’s BRK221 message is that the hard part of production AI agents is no longer choosing the best model. The hard part is making a model behave reliably, safely, and economically in real systems. In that framing, the runtime becomes the product-defining layer because it decides whether an agent can run at scale, stay secure, recover quickly, and keep costs under control.
+The current presentation starts as a neutral review of Microsoft Build 2026 and only becomes architectural later. That is intentional. The opening slide should feel like a conference talk about AI agents and Azure Container Apps, while the deeper narrative grows from the supporting documentation and the runtime primitives that Microsoft introduced.
 
-The core argument is simple: a model can be smart, but an agent still fails if the runtime cannot manage its execution environment. Microsoft highlighted five runtime requirements that are now foundational:
+The key idea is no longer simply “the runtime matters.” It is more precise:
 
-1. Cost control for runaway loops and repeated tool calls.
-2. Security isolation so untrusted code and tool access do not leak into the wider platform.
-3. Fast cold starts so agents can respond in near real time.
-4. Persistence for long-running work, memory, and continuity across sessions.
-5. Environment stitching so connectors, secrets, volumes, and external systems can work together without fragile custom plumbing.
+- The Build session initially looks like an AI-agent showcase.
+- The supporting documentation reveals runtime capabilities that are much more interesting than the demo itself.
+- Session Groups, Snapshots, Egress Policies, Connectors and Identity are runtime concerns rather than model concerns.
+- That shift is the moment the talk becomes about runtime architecture rather than model novelty.
 
-This is why Microsoft positions Azure Container Apps as the important layer of the architecture. The model may provide reasoning quality, but the runtime determines whether that reasoning is usable in production. A good runtime makes an agent affordable, isolated, responsive, and operationally durable. A weak runtime makes the same model look unreliable, expensive, and unsafe.
+## One-page explanation
 
-The demo and customer examples reinforce this point. Microsoft showed sandboxes, snapshots, connector inheritance, and fast resume behavior because these features solve the everyday production problems that make agents hard to ship. Augur’s supply-chain use case also shows the same theme at a larger scale: the real value comes from orchestrating many agents, integrating real systems, and running them continuously, not from the model alone.
+Microsoft’s Build 2026 message is that the hard part of production AI agents is not choosing the best model. It is making the agent run safely, continuously, and with the right level of trust in real systems. In that framing, the runtime is the product-defining layer because it decides how the agent can access tools, persist state, isolate execution, and operate within enterprise boundaries.
 
-For the talk, the key takeaway is that Azure Container Apps is not just a shiny runtime for demos. It is a practical answer to the operational questions that decide whether agent systems can survive real workloads. That is why Microsoft believes the runtime is now the critical component of agent architecture.
+The presentation now reflects that arc in three stages:
+
+1. Start with neutral curiosity: this is a talk about Azure Container Apps, AI agents, and the Build announcement.
+2. Introduce the turning point: the documentation changes the interpretation of the session from “agent showcase” to “runtime architecture discussion.”
+3. Move into judgement: the runtime determines trust, isolation, persistence, access and governance.
+
+This is why the current deck emphasises the “What Changed My Mind” page as a reflective bridge. It is not just another summary slide. It is the point where the story shifts from what Microsoft showed to what the documentation implies about where the real value lies.
 
 ## Talk angle
 
-- Useful pattern or build-demo hype? The transcript strongly supports the “useful pattern” side.
+- Useful pattern or build-demo hype? The current deck leans toward the “useful pattern” side, but it does so with a more careful, reflective tone.
 - The strongest message is not “AI agents are exciting,” but “the runtime is what turns models into dependable production systems.”
 
-## Skeleton update
+## Current deck update
 
-This repo now includes a simple static GitHub Pages landing page in docs/index.html with placeholder sections for:
+The presentation now includes the following story flow:
 
-- the architecture diagram
-- a demo walkthrough
-- the GitHub repo link
-- Azure deployment notes
-- questions from the audience
+- Home: neutral opening.
+- What Changed My Mind: reflection and turning point.
+- Problem, Runtime, Architecture: the foundations of the runtime discussion.
+- Demo walkthroughs and sandbox concepts: the concrete Build-session evidence.
+- My Take, Trust Spectrum, Adoption Criteria, Recap and Resources: the conclusions and follow-up material.
 
-The goal is to keep the first version boring, readable, and easy to extend as the talk content matures.
+The goal is to keep the current version readable, conference-ready, and grounded in the actual story that the deck now tells.

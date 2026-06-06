@@ -178,6 +178,10 @@ img {
     margin-bottom: 1rem;
 }
 
+.home-hero-grid {
+    align-items: center;
+}
+
 .hero-copy,
 .hero-qr {
     padding: 1.25rem;
@@ -185,6 +189,49 @@ img {
     background: linear-gradient(180deg, rgba(17, 28, 45, 0.98), rgba(15, 23, 42, 0.98));
     border: 1px solid var(--line);
     box-shadow: 0 18px 40px rgba(2, 6, 23, 0.35);
+}
+
+.home-opening-card {
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home-intro {
+    margin: 1rem 0 1.25rem;
+    max-width: 46rem;
+}
+
+.home-intro-text,
+.home-supporting-text {
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    line-height: 1.4;
+}
+
+.home-supporting-text {
+    margin-top: 0.35rem;
+    color: var(--muted);
+}
+
+.home-presenter-block {
+    margin-top: 1rem;
+}
+
+.home-qr-card {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.92);
+}
+
+.qr-caption {
+    margin: 0 0 0.35rem;
+    color: var(--muted);
+    font-size: 0.92rem;
 }
 
 .eyebrow {
@@ -218,14 +265,85 @@ h1 {
     font-weight: 600;
 }
 
+.home-hero-note {
+    margin-top: 0.8rem;
+    padding: 1rem;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: rgba(15, 23, 42, 0.92);
+}
+
+.home-hero-note h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+.home-hero-note p {
+    margin: 0 0 0.35rem;
+    color: var(--text);
+}
+
+.home-callout {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.home-section {
+    margin-bottom: 1rem;
+}
+
+.home-section h2,
+.home-question-block h2 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.home-card,
+.home-question-block {
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: rgba(15, 23, 42, 0.92);
+    padding: 1rem;
+}
+
+.home-card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.home-card p,
+.home-question-block p {
+    margin: 0;
+    color: var(--text);
+}
+
+.home-question-block {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(14, 165, 233, 0.08));
+}
+
+.home-question {
+    font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+    line-height: 1.35;
+    text-align: center;
+    color: var(--text);
+}
+
 .qr-image {
-    width: min(100%, 280px);
+    width: min(100%, 220px);
     height: auto;
     display: block;
-    margin: 0.75rem auto 0.35rem;
-    border-radius: 18px;
+    margin: 0.35rem auto 0.35rem;
+    border-radius: 16px;
     background: #fff;
-    padding: 0.35rem;
+    padding: 0.25rem;
     box-shadow: 0 10px 24px rgba(15, 23, 42, 0.25);
 }
 
@@ -367,6 +485,61 @@ h1 {
     background: rgba(14, 165, 233, 0.08);
 }
 
+.why-quote {
+    margin: 0.75rem 0 1rem;
+    padding: 1rem 1.1rem;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(15, 23, 42, 0.98));
+    color: var(--text);
+    font-size: clamp(1.15rem, 3vw, 1.45rem);
+    line-height: 1.35;
+    font-weight: 600;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.why-card {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.92);
+}
+
+.why-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.why-card p {
+    color: var(--text);
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+}
+
+.why-note {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.why-question {
+    font-size: 1rem;
+    line-height: 1.35;
+}
+
+.why-footer {
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.75rem;
+}
+
 .identity-grid {
     gap: 1rem;
     align-items: start;
@@ -379,6 +552,10 @@ h1 {
 
     .resource-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -568,6 +745,14 @@ h1 {
     .hero-grid {
         grid-template-columns: 1.1fr 0.9fr;
         align-items: stretch;
+    }
+
+    .home-hero-grid {
+        align-items: center;
+    }
+
+    .home-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .quick-grid {

@@ -10,6 +10,7 @@ const pages = [
     'snapshots',
     'egress-policies',
     'identity',
+    'why-this-talk-exists',
     'my-take',
     'where-i-would-use-it',
     'trust-spectrum',
@@ -20,6 +21,7 @@ const pages = [
 
 const pageLabels = {
     home: 'Home',
+    'why-this-talk-exists': 'What Changed My Mind',
     recap: 'Recap',
     problem: 'Problem',
     runtime: 'Runtime',

@@ -29,25 +29,39 @@
     <main class="deck-shell">
         <section id="home" class="deck-page active" aria-label="Home page">
             <div class="shell deck-page-inner">
-                <div class="hero-grid">
-                    <article class="card hero-copy">
+                <div class="hero-grid home-hero-grid">
+                    <article class="card hero-copy home-opening-card">
                         <p class="eyebrow">Brisbane Azure User Group</p>
                         <h1>Azure Container Apps as the AI Agent Runtime</h1>
-                        <p class="subtitle">Useful pattern or Build demo hype?</p>
-                        <p class="lead">A lightweight slide-style shell for the BAUG talk on Microsoft Build 2026,
-                            runtime-first AI agents, and why the platform may matter more than the model.</p>
-                        <p class="presenter">Damien Berry</p>
+                        <p class="subtitle">Useful Pattern or Build Demo Hype?</p>
+
+                        <section class="home-intro" aria-label="Opening introduction">
+                            <p class="home-intro-text">A review of Microsoft's Build 2026 announcement and the emerging
+                                role of AI-native runtimes for agent workloads.</p>
+                            <p class="home-supporting-text">Exploring Azure Container Apps, Sandboxes, Connectors,
+                                Identity and Enterprise AI Architecture.</p>
+                        </section>
+
+                        <div class="home-presenter-block">
+                            <p class="presenter">Damien Berry</p>
+                            <p class="muted">Brisbane Azure User Group</p>
+                        </div>
                     </article>
 
-                    <aside class="card hero-qr" aria-label="QR code for the presentation site">
-                        <h2>Scan to open</h2>
-                        <p class="muted">Use this QR code to open the talk shell from a phone in the room.</p>
+                    <aside class="card hero-qr home-qr-card" aria-label="QR code for the presentation site">
+                        <p class="qr-caption">Scan to follow along on your phone.</p>
                         <img class="qr-image"
-                            src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https://damien-berry.github.io/BAUG_ContainerApp/"
-                            alt="QR code for the BAUG presentation site" width="280" height="280" />
+                            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://damien-berry.github.io/BAUG_ContainerApp/"
+                            alt="QR code for the BAUG presentation site" width="220" height="220" />
                         <p class="qr-link">https://damien-berry.github.io/BAUG_ContainerApp/</p>
                     </aside>
                 </div>
+
+                <aside class="notes-strip" aria-label="Speaker notes">
+                    <p class="eyebrow">Speaker Notes</p>
+                    <p>At this point the audience should assume this is a presentation about AI agents and Azure
+                        Container Apps. The architectural conclusions will emerge later in the presentation.</p>
+                </aside>
 
                 <footer class="footer-card">
                     <p>Prepared for the Brisbane Azure User Group talk.</p>
@@ -55,6 +69,65 @@
                     <p>Source: GitHub Repository</p>
                 </footer>
             </div>
+        </section>
+
+        <section id="why-this-talk-exists" class="deck-page" aria-label="What Changed My Mind page">
+            <article class="shell deck-card">
+                <p class="eyebrow">02 / What Changed My Mind</p>
+                <h2>What Changed My Mind</h2>
+                <p class="lead">The moment the Build session became an architecture discussion</p>
+
+                <blockquote class="why-quote">I expected a presentation about agents.<br />I think I watched a
+                    presentation about runtimes.</blockquote>
+
+                <div class="why-grid">
+                    <article class="why-card">
+                        <h3>What Microsoft Showed</h3>
+                        <ul class="bullet-list">
+                            <li>AI Agents</li>
+                            <li>Voice Interaction</li>
+                            <li>Calendar Access</li>
+                            <li>Teams Integration</li>
+                            <li>Code Generation</li>
+                        </ul>
+                        <p class="why-note">At first glance this looked like another AI agent presentation.</p>
+                    </article>
+                    <article class="why-card">
+                        <h3>What I Investigated</h3>
+                        <ul class="bullet-list">
+                            <li>Session Groups</li>
+                            <li>Snapshots</li>
+                            <li>Egress Policies</li>
+                            <li>Identity</li>
+                            <li>Connectors</li>
+                        </ul>
+                        <p class="why-note">The documentation revealed a much deeper runtime model.</p>
+                    </article>
+                    <article class="why-card">
+                        <h3>What Changed My Mind</h3>
+                        <p>The difficult problem is not generating tokens.</p>
+                        <p>The difficult problem is running agents safely.</p>
+                        <p>The runtime determines:</p>
+                        <ul class="bullet-list">
+                            <li>Trust</li>
+                            <li>Isolation</li>
+                            <li>Persistence</li>
+                            <li>Access</li>
+                            <li>Governance</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <p class="why-footer">This was the point where the presentation stopped being about AI models and
+                    started being about runtime architecture.</p>
+                <div class="placeholder-box">Speaker notes: The Build session initially looked like a showcase of AI
+                    agents interacting with enterprise systems. The deeper investigation revealed something more
+                    interesting. Session Groups, Snapshots, Identity and Egress Policies are not model concerns. They
+                    are runtime concerns. This was the moment I started viewing ACA Sandboxes as a potential new runtime
+                    category rather than simply another AI demo.</div>
+                <nav class="deck-nav"><a href="#home">Previous</a><a href="#home">Back to home</a><a
+                        href="#problem">Next</a></nav>
+            </article>
         </section>
 
         <section id="problem" class="deck-page" aria-label="Problem page">
@@ -66,7 +139,7 @@
                 <div class="placeholder-box">Runtime pain points behind failed AI agent
                     projects: cost,
                     isolation, persistence, latency, and environment complexity.</div>
-                <nav class="deck-nav"><a href="#recap">Previous</a><a href="#home">Back to home</a><a
+                <nav class="deck-nav"><a href="#why-this-talk-exists">Previous</a><a href="#home">Back to home</a><a
                         href="#runtime">Next</a></nav>
             </article>
         </section>
@@ -133,11 +206,10 @@
             <article class="shell deck-card">
                 <p class="eyebrow">07 / Sandboxes</p>
                 <h2>The actual announcement: ACA Sandboxes</h2>
-                <p class="lead">Seed environment, snapshots, isolation - changes the agent runtime story.</p>
+                <p class="lead">Persistent state, isolation and secure code execution.</p>
                 <img class="deck-image" src="Img/ACA_Sandboxes_Usecases.jpg" alt="Placeholder sandbox image" />
-                <div class="placeholder-box">Sandbox announcement, seed environment,
-                    snapshots, and how
-                    isolation changes the agent runtime story.</div>
+                <div class="placeholder-box">Sandbox, seed environment, snapshots, and how isolation
+                    changes the agent runtime story.</div>
                 <nav class="deck-nav"><a href="#demo-2">Previous</a><a href="#home">Back to home</a><a
                         href="#session-groups">Next</a></nav>
             </article>
@@ -301,7 +373,7 @@ Enterprise Systems</pre>
 
                 <section class="identity-observation">
                     <h3>Observation</h3>
-                    <p>The ACA Sandbox model appears to be identity-aware, not merely container-aware.</p>
+                    <p>The ACA Sandbox model appears to be identity-aware, not merely compute-aware.</p>
                     <p>The Build demo and documentation show identity, connectors and session groups working together to
                         provide access to enterprise systems.</p>
                     <p>At this stage it is clear identity is important to the platform, but the precise security and
@@ -323,8 +395,8 @@ Enterprise Systems</pre>
             <article class="shell deck-card">
                 <p class="eyebrow">12 / My Take</p>
                 <h2>My Take</h2>
-                <p class="lead">What I think Microsoft is really building</p>
-                <p class="muted">Damien's Interpretation</p>
+                <p class="lead">Damien's Interpretation - What I think Microsoft is really building</p>
+                <p class="muted"></p>
 
                 <div class="my-take-grid">
                     <article class="my-take-card">
